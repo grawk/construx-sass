@@ -1,18 +1,18 @@
-# construx-star
+# construx-sass
 
-Lead Maintainer: [star](star)
+Lead Maintainer: [Matt Edelman](https://github.com/grawk)
 
-[![Build Status](https://travis-ci.org/krakenjs/construx-star.svg?branch=master)](https://travis-ci.org/krakenjs/construx-star)
-[![NPM version](https://badge.fury.io/js/construx-star.png)](http://badge.fury.io/js/construx-star)
+[![Build Status](https://travis-ci.org/krakenjs/construx-sass.svg?branch=master)](https://travis-ci.org/krakenjs/construx-sass)
+[![NPM version](https://badge.fury.io/js/construx-sass.png)](http://badge.fury.io/js/construx-sass)
 
-[construx](https://github.com/krakenjs/construx) plugin for JIT-compiling star resources during development of [express](http://expressjs.com/) applications.
+[construx](https://github.com/krakenjs/construx) plugin for JIT-compiling sass resources during development of [express](http://expressjs.com/) applications.
 
 ## Usage
 
 ### Install
 
 ```shell
-$ npm install --save-dev construx-star
+$ npm install --save-dev construx-sass
 ```
 
 ### Configure
@@ -21,9 +21,9 @@ Where you configure your construx plugins:
 
 ```json
 {
-    "star": {
-        "module": "construx-star",
-        "files": "/star/**/*.compiled",
+    "sass": {
+        "module": "construx-sass",
+        "files": "/css/**/*.scss",
     }
 }
 ```

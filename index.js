@@ -18,22 +18,25 @@
 'use strict';
 
 
+var lib = require('node-sass');
+
+
 module.exports = function (options) {
 
-    options.ext = options.ext || 'less';
-    options.dumpLineNumbers = 'comments';
+    options.ext = options.ext || 'scss';
 
     return function (data, args, callback) {
-        var star = data.toString('utf8');
-        var paths = args.paths;
-        var name = args.context.name;
-
-        if (star === 'good') {
-            callback(null, 'star');
-        } else {
-            callback(new Error('Bad star file'));
-        }
-
+        lib.render({
+            data: data.toString() || ' ', // Empty space because no data causes weird errors.
+            includePaths: args.paths
+        }, function (err, result) {
+            if (err) {
+                err.status = 500; // for ^2
+                callback(err);
+            } else {
+                callback(null, result.css || result); // result.css for ^2
+            }
+        });
     };
 
 };
