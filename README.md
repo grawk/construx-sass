@@ -7,6 +7,10 @@ Lead Maintainer: [Matt Edelman](https://github.com/grawk)
 
 [construx](https://github.com/krakenjs/construx) plugin for JIT-compiling sass resources during development of [express](http://expressjs.com/) applications.
 
+## Requirements
+
+`construx-sass` expects `node-sass@^v3.0.0`
+
 ## Usage
 
 ### Install
@@ -20,12 +24,10 @@ $ npm install --save-dev construx-sass
 Where you configure your construx plugins:
 
 ```json
-{
-    "sass": {
-        "module": "construx-sass",
-        "files": "/css/**/*.scss",
-    }
-}
+"css": {
+    "module": "construx-sass",
+    "files": "/css/**/*.css"
+},
 ```
 
 _Note: See [construx README](https://github.com/krakenjs/construx/blob/master/README.md) for general usage of construx_
