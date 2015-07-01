@@ -7,9 +7,6 @@ Lead Maintainer: [Matt Edelman](https://github.com/grawk)
 
 [construx](https://github.com/krakenjs/construx) plugin for JIT-compiling sass resources during development of [express](http://expressjs.com/) applications.
 
-## Requirements
-
-`construx-sass` expects `node-sass@^v3.0.0`
 
 ## Usage
 
