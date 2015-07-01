@@ -22,18 +22,19 @@
 
 var test = require('tap').test,
   path = require('path'),
-  Star = require(path.resolve(__dirname, '..')),
-  star = Star({}),
+  Sass = require(path.resolve(__dirname, '..')),
+  sass = Sass({}),
   fs = require('fs');
 
 test('construx-less', function (t) {
 
-    t.test('processes a good star file', function (t) {
+    t.test('processes a good less file', function (t) {
         t.plan(1);
         //get good star file
-        fs.readFile(path.resolve(__dirname, 'star/good.star'), function (err, data) {
-            star(data, {paths: '', context: {name: 'star.compiled'}}, function (err, compiled) {
-                t.equal('star', compiled);
+        fs.readFile(path.resolve(__dirname, 'css/good.scss'), function (err, data) {
+
+            sass(data, {paths: [path.resolve(__dirname, 'css')], context: {name: 'star.compiled'}}, function (err, compiled) {
+                t.ok(compiled.indexOf('4D926F') !== -1);
                 t.end();
             });
 
@@ -44,8 +45,8 @@ test('construx-less', function (t) {
     t.test('processes a bad star file', function (t) {
         t.plan(1);
         //get bad star file
-        fs.readFile(path.resolve(__dirname, 'star/bad.star'), function (err, data) {
-            star(data, {paths: '', context: {name: 'star.compiled'}}, function (err, compiled) {
+        fs.readFile(path.resolve(__dirname, 'css/bad.scss'), function (err, data) {
+            sass(data, {paths: '', context: {name: 'bad.compiled'}}, function (err, compiled) {
                 t.ok(err.name === 'Error');
                 t.end();
             });

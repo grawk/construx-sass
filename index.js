@@ -31,10 +31,9 @@ module.exports = function (options) {
             includePaths: args.paths
         }, function (err, result) {
             if (err) {
-                err.status = 500; // for ^2
                 callback(err);
             } else {
-                callback(null, result.css || result); // result.css for ^2
+                callback(null, result.css.toString());
             }
         });
     };
