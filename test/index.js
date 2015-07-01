@@ -26,14 +26,14 @@ var test = require('tap').test,
   sass = Sass({}),
   fs = require('fs');
 
-test('construx-less', function (t) {
+test('construx-sass', function (t) {
 
-    t.test('processes a good less file', function (t) {
+    t.test('processes a good sass file', function (t) {
         t.plan(1);
         //get good star file
         fs.readFile(path.resolve(__dirname, 'css/good.scss'), function (err, data) {
 
-            sass(data, {paths: [path.resolve(__dirname, 'css')], context: {name: 'star.compiled'}}, function (err, compiled) {
+            sass(data, {paths: [path.resolve(__dirname, 'css')], context: {name: 'good.css'}}, function (err, compiled) {
                 t.ok(compiled.indexOf('4D926F') !== -1);
                 t.end();
             });
@@ -42,11 +42,11 @@ test('construx-less', function (t) {
 
     });
 
-    t.test('processes a bad star file', function (t) {
+    t.test('processes a bad sass file', function (t) {
         t.plan(1);
         //get bad star file
         fs.readFile(path.resolve(__dirname, 'css/bad.scss'), function (err, data) {
-            sass(data, {paths: '', context: {name: 'bad.compiled'}}, function (err, compiled) {
+            sass(data, {paths: '', context: {name: 'bad.css'}}, function (err, compiled) {
                 t.ok(err.name === 'Error');
                 t.end();
             });
