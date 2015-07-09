@@ -1,6 +1,6 @@
 {
   "name": "construx-sass",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "sass compiler plugin for construx",
   "main": "index.js",
   "scripts": {
